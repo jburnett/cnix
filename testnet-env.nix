@@ -16,6 +16,7 @@ mkShell {
     export testnet_magic=1097911063
     export relay_topo=$network-relay-topology.json
     export producer_topo=$network-producer-topology.json
+    export config=$network-config.json
     export alonzo=$network-alonzo-genesis.json
     export byron=$network-byron-genesis.json
     export shelley=$network-shelley-genesis.json
@@ -26,9 +27,9 @@ mkShell {
     echo "\$cardano_config_path: $cardano_config_path"
 
     if [ ! -d $cardano_config_path ]; then
-      echo "$cardano_config_path not found"
+      echo "ERROR: $cardano_config_path not found"
       exit 1
     fi
-    
+
   '';
 }
